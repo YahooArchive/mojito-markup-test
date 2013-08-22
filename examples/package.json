@@ -1,0 +1,15 @@
+{
+    "name": "mojito-markup-test-examples",
+    "description": "Markup test example app",
+    "version": "0.0.1",
+    "author": "David Gomez <dgomez@yahoo-inc.com>",
+    "devDependencies": {
+        "mojito": "0.7.x",
+        "jsdom": "0.2.1",
+        "mojito-markup-test": "0.0.x"
+    },
+    "engines": {
+        "node": ">0.8",
+        "mojito": ">0.7"
+    }
+}

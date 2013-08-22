@@ -1,0 +1,18 @@
+[
+    {
+        "settings": [ "master" ],
+        "specs": {
+            "frame": {
+                "type": "HTMLFrameMojit",
+                "config": {
+                    "child": {
+                        "base": "framed"
+                    }
+                }
+            },
+            "framed": {
+                "type": "CompositeMojit"
+            }
+        }
+    }
+]
