@@ -1,4 +1,4 @@
-# Markup test utility
+# Mojito markup test utility
 
 ## Overview
 
