@@ -10,6 +10,6 @@ Examples of markup testing for different mojits:
 
 ```bash
 cd examples
-ynpm install
+npm install
 mojito test app .
 ```
