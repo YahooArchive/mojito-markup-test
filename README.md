@@ -204,4 +204,4 @@ YUI.add('CompositeMojit_view-tests', function(Y) {
 ]});
 ```
 
-See more [examples](examples).
+See more [examples](https://github.com/yahoo/mojito-markup-test/tree/master/examples).
