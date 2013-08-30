@@ -1,5 +1,11 @@
 # Mojito markup test utility
 
+Build Status
+------------
+
+[![Build Status](https://travis-ci.org/yahoo/mojito-markup-test.png)](https://travis-ci.org/yahoo/mojito-markup-test)
+
+
 ## Overview
 
 The markup layout test utility will render the mojit view with mock data and expose
