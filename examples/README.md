@@ -6,7 +6,7 @@ Examples of markup testing for different mojits:
 * Composite mojit
 * Localized mojit (ac.intl)
 
-## Runnig the examples
+## Running the examples
 
 ```bash
 cd examples
