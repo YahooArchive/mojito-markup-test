@@ -1,4 +1,4 @@
-# Markup test utlity example application
+# Markup test utility example application
 
 Examples of markup testing for different mojits:
 
