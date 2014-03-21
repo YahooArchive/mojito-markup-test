@@ -172,7 +172,7 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
                         },
 
                         page: {
-                            staticAppConfig: appConfig
+                            appConfig: appConfig
                         }
                     },
 
