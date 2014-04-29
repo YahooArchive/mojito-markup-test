@@ -86,12 +86,13 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
         },
 
         getMojitTypeDetails = function (env, ctx, type, callback) {
+            var mojitType;
             try {
-                var mojitType = store.getMojitTypeDetails(env, ctx, type);
-                callback(null, mojitType);
+                mojitType = store.getMojitTypeDetails(env, ctx, type);
             } catch (e) {
-                callback(e);
+                return callback(e);
             }
+            callback(null, mojitType);
         },
 
         render = function (spec, callback) {
