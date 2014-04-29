@@ -49,6 +49,8 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
 
         preloadStore = function (cfg) {
             store = rs.createStore(cfg);
+            store._staticDetails = {};
+            store._appY = Y;
             store.preload();
         },
 
