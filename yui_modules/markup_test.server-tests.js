@@ -47,8 +47,6 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
             Y.mix(receiver, supplier, false, null, 0, true);
         },
 
-        foo = 1,
-
         preloadStore = function (cfg) {
             if (!store || !cfg.reuse) {
                 store = rs.createStore(cfg);
