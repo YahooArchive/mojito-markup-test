@@ -47,11 +47,15 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
             Y.mix(receiver, supplier, false, null, 0, true);
         },
 
+        foo = 1,
+
         preloadStore = function (cfg) {
-            store = rs.createStore(cfg);
-            store._staticDetails = {};
-            store._appY = Y;
-            store.preload();
+            if (!store || !cfg.reuse) {
+                store = rs.createStore(cfg);
+                store._staticDetails = {};
+                store._appY = Y;
+                store.preload();
+            }
         },
 
         configureYUI = function () {
@@ -107,7 +111,8 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
             preloadStore({
                 root: root,
                 context: ctx,
-                appConfig: appConfig
+                appConfig: appConfig,
+                reuse: spec.reuseStore
             });
 
             if (!isMojitDefined(env, type)) {
