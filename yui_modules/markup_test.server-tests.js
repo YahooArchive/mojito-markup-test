@@ -20,7 +20,6 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
         O = Y.Object,
         A = Y.Array,
 
-        CORE_YUI_MODULES = ['get', 'features', 'intl-base', 'mojito'],
         DEFAULT_LANG = 'en-US',
         DEFAULT_ENV = 'server',
 
@@ -47,15 +46,6 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
             Y.mix(receiver, supplier, false, null, 0, true);
         },
 
-        preloadStore = function (cfg) {
-            if (!store || !cfg.reuse) {
-                store = rs.createStore(cfg);
-                store._staticDetails = {};
-                store._appY = Y;
-                store.preload();
-            }
-        },
-
         configureYUI = function () {
             var modules,
                 load,
@@ -78,6 +68,18 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
             Y.applyConfig({ useSync: true });
             Y.use.apply(Y, load);
             Y.applyConfig({ useSync: false });
+            store.Y = Y;
+        },
+
+        preloadStore = function (cfg) {
+            if (!store || !cfg.reuse) {
+                store = rs.createStore(cfg);
+                store._staticDetails = {};
+                store._appY = Y;
+                store.preload();
+
+                configureYUI();
+            }
         },
 
         isMojitDefined = function (env, type) {
@@ -119,8 +121,6 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
                 ));
                 return;
             }
-
-            configureYUI();
 
             getMojitTypeDetails(env, ctx, type, function (err, instance) {
 
