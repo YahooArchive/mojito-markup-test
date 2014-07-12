@@ -29,7 +29,7 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
             }
 
             // TODO mojito should accept options.root
-            process.chdir(options.root || cwd)
+            process.chdir(options.root || cwd);
 
             app = cachedApps[key] = express();
             Mojito.extend(app, options);
@@ -69,15 +69,15 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
                     callback(null, data, meta, node);
                 });
 
-                Y.mix(adapter, {
-                    req: spec.req || {},
-                    res: spec.res || {},
-                    page: {
-                        staticAppConfig: spec.appConfig || store.getStaticAppConfig(),
-                        appConfig: spec.appConfig || store.getAppConfig(context),
-                        routes: app.getRouteMap()
-                    }
-                });
+            Y.mix(adapter, {
+                req: spec.req || {},
+                res: spec.res || {},
+                page: {
+                    staticAppConfig: spec.appConfig || store.getStaticAppConfig(),
+                    appConfig: spec.appConfig || store.getAppConfig(context),
+                    routes: app.getRouteMap()
+                }
+            });
 
             dispatcher.dispatch(command, adapter);
         },
