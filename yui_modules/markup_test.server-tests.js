@@ -16,15 +16,16 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
         MAX_CACHED_APPS = 5,
         cachedApps = {},
 
-        createApp = function (options) {
+        createApp = function (spec) {
 
-            var key = JSON.stringify(
+            var options = spec.options || {},
+                key = JSON.stringify(
                     // Stringified options, with sorted properties
                     Y.mix({}, options, true, Y.Object.keys(options).sort())
                 ),
                 app = cachedApps[key];
 
-            if (app) {
+            if (app && !spec.skipCache) {
                 return app;
             }
 
@@ -39,6 +40,11 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
             // maintaining the same cache key.
             Mojito.extend(app, Y.clone(options, true));
 
+            // TODO: this is only necessary for YUI modules to appear in istanbul code coverage.
+            app.mojito.store.Y = Y;
+
+            Y.use.apply(Y, ['mojito', 'mojito-util', 'mojito-hooks', 'mojito-dispatcher', 'mojito-hb', 'mojito-mu']);
+
             if (Y.Object.size(cachedApps) > MAX_CACHED_APPS) {
                 delete cachedApps[Y.Object.keys(cachedApps)[0]];
             }
@@ -50,7 +56,7 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
 
         render = function (spec, callback) {
 
-            var app = spec.app || createApp(spec.options || {}),
+            var app = spec.app || createApp(spec),
                 context = spec.context || {},
                 store = app.mojito.store,
                 dispatcher = store.Y.mojito.Dispatcher.init(app.mojito.store),
