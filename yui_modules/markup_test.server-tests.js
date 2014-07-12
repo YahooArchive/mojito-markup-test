@@ -32,7 +32,12 @@ YUI.add('mojito-markup-test', function (Y, NAME) {
             process.chdir(options.root || cwd);
 
             app = cachedApps[key] = express();
-            Mojito.extend(app, options);
+
+            // We clone the options since mojito actually modifies the object,
+            // and if the modified options object is reused, then the generated key would
+            // differ. Cloning ensures that the same options object can be used, while
+            // maintaining the same cache key.
+            Mojito.extend(app, Y.clone(options, true));
 
             if (Y.Object.size(cachedApps) > MAX_CACHED_APPS) {
                 delete cachedApps[Y.Object.keys(cachedApps)[0]];

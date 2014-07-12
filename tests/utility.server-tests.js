@@ -31,9 +31,11 @@ YUI.add('CompositeMojit.view-tests', function (Y) {
                 spec = {
                     options: {
                         root: path.join(__dirname, 'fixtures/app'),
-                        resourceStore: {
-                            lazyMojits: true,
-                            lazyLangs: true
+                        appConfig: {
+                            resourceStore: {
+                                lazyMojits: true,
+                                lazyLangs: true
+                            }
                         }
                     },
                     type: 'CompositeMojit',
@@ -102,7 +104,15 @@ YUI.add('CompositeMojit.view-tests', function (Y) {
                 items = ['use', 'the', 'force'],
 
                 spec = {
-                    root: path.join(__dirname, 'fixtures/app'),
+                    options: {
+                        root: path.join(__dirname, 'fixtures/app'),
+                        appConfig: {
+                            resourceStore: {
+                                lazyMojits: true,
+                                lazyLangs: true
+                            }
+                        }
+                    },
                     type: 'InvalidMojit',
                     action: 'index'
                 };
