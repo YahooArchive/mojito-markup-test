@@ -29,9 +29,20 @@ YUI.add('CompositeMojit.view-tests', function (Y) {
                 items = ['use', 'the', 'force'],
 
                 spec = {
-                    root: path.join(__dirname, 'fixtures/app'),
+                    options: {
+                        root: path.join(__dirname, 'fixtures/app'),
+                        appConfig: {
+                            resourceStore: {
+                                lazyMojits: true,
+                                lazyLangs: true
+                            }
+                        }
+                    },
                     type: 'CompositeMojit',
-                    action: 'index'
+                    action: 'index',
+                    context: {
+                        lang: 'en-US'
+                    }
                 };
 
             MarkupTest.render(spec, function (err, markup, meta, node) {
@@ -93,7 +104,15 @@ YUI.add('CompositeMojit.view-tests', function (Y) {
                 items = ['use', 'the', 'force'],
 
                 spec = {
-                    root: path.join(__dirname, 'fixtures/app'),
+                    options: {
+                        root: path.join(__dirname, 'fixtures/app'),
+                        appConfig: {
+                            resourceStore: {
+                                lazyMojits: true,
+                                lazyLangs: true
+                            }
+                        }
+                    },
                     type: 'InvalidMojit',
                     action: 'index'
                 };
