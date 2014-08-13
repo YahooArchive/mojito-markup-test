@@ -1,7 +1,7 @@
 {
     "name": "mojito-markup-test",
     "description": "Utility for view markup validation in mojito unit tests.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "David Gomez <dgomez@yahoo-inc.com>",
     "contributors": [
         "Julien Lecomte <jlecomte@yahoo-inc.com>"
